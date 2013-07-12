@@ -8,8 +8,6 @@ package com.horizon.dal.skydal;
 
 import com.horizon.dal.skydal.util.DAOGenUtil;
 
-import org.apache.commons.lang.Validate;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
