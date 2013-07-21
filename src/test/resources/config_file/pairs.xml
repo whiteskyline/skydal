@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connection-pool>
+
+	<pairs name="passwd" range="10">
+		<pair start="0" end="4" value="valueofpari0-4" />
+		<pair key="5" value="valueofpair5" />
+		<pair start="6" end="9" value="valueofpair6-9" />
+	</pairs>
+
+	<genConnections idxRange="10" name="mms_db_${id}"
+		url="jdbc:mysql://10.237.35.100/mms_db_${id}" usr="mfs_app_usr" pwd="${passwd}" />
+
+</connection-pool>
