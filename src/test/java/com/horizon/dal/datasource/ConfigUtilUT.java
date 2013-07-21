@@ -23,7 +23,7 @@ public class ConfigUtilUT {
         ConnectionsConfig config = new ConnectionsConfig();
         config = ConfigUtil.getFromFile(connectionsFilename, config);
         Assert.assertNotNull(config.getConnections());
-        Assert.assertTrue(config.getConnections().getConnections().size() != 0);
+        Assert.assertTrue(config.getConnections().size() != 0);
     }
 
     @Test

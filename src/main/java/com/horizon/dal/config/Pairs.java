@@ -51,7 +51,7 @@ public class Pairs implements Validatable {
         // 取出，检查key的覆盖情况
         Validate.notEmpty(pairs, "pairs should not be empty!");
         Validate.isTrue(pairs.firstKey() == 0, "key set should cover 0 - range!");
-        Validate.isTrue(pairs.lastKey() == getRange(), "key set should cover 0 - range!");
+        Validate.isTrue(pairs.lastKey() == getRange() - 1, "key set should cover 0 - range!");
         Set<Integer> keySet = pairs.keySet();
         int preKey = -1;
         for (Integer currentKey : keySet) {

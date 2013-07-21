@@ -52,13 +52,13 @@ public class Pair implements Validatable {
         Validate.isTrue(start != DalConstants.UN_INIT_VALUE_INT && end != DalConstants.UN_INIT_VALUE_INT && start <= end,
             "invalid start and end value!");
         ArrayList<Pair> result = new ArrayList<Pair>(end - start + 1);
-        for (int idx = start; idx < end; idx++) {
+        for (int idx = start; idx <= end; idx++) {
             Pair decodedPair = new Pair();
             decodedPair.setKey(idx);
             decodedPair.setValue(value);
+            result.add(decodedPair);
         }
         return result;
-
     }
 
     /**
@@ -130,7 +130,7 @@ public class Pair implements Validatable {
             return;
         }
 
-        Validate.isTrue(start != DalConstants.UN_INIT_VALUE_INT && end == DalConstants.UN_INIT_VALUE_INT,
+        Validate.isTrue(start != DalConstants.UN_INIT_VALUE_INT && end != DalConstants.UN_INIT_VALUE_INT,
             "start and end value should be both set!");
         Validate.isTrue(start <= end, "invalid start value!");
         Validate.isTrue(StringUtils.isNotBlank(value), "invalid value!");
