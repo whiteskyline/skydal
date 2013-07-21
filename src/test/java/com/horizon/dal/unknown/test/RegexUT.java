@@ -18,9 +18,9 @@ import java.util.regex.Pattern;
 /**
  * @author ianlin 对正则表达式的内容进行测试
  */
-public class RegexTest {
+public class RegexUT {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(RegexTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RegexUT.class);
 
     @Test
     public void testRegex() throws Exception {

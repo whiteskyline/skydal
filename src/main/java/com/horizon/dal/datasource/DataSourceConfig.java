@@ -6,13 +6,40 @@
 
 package com.horizon.dal.datasource;
 
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+
 /**
  * @author ianlin 数据源配置
  */
+@Element(name = "connection")
 public class DataSourceConfig {
+    @Attribute
+    private String name;
+    @Attribute
     private String url;
+    @Attribute
     private String usr;
+    @Attribute
     private String pwd;
+
+    // 这个字段暂时不进行实现
+    @Attribute(required = false)
+    private String role;
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
     /**
      * @return the url

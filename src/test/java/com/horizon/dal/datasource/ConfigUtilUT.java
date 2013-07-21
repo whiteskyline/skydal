@@ -15,7 +15,7 @@ import junit.framework.Assert;
 /**
  * @author ianlin
  */
-public class ConfigTest {
+public class ConfigUtilUT {
 
     @Test
     public void testConnectionsConfig() throws Exception {
