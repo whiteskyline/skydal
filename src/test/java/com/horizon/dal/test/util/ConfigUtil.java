@@ -25,6 +25,7 @@ public class ConfigUtil {
         Serializer selializer = new Persister();
         File file = new File(filename);
         if (!file.exists()) {
+            LOGGER.error("fils {} does not exist.", file.getAbsolutePath());
             throw new DalConfigException("file does not exist:" + filename);
         }
         try {

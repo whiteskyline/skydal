@@ -43,13 +43,12 @@ public class SuperMockedAttributeFilter implements InstantiationAwareBeanPostPro
         // 查询这个类是否在对应的Mock类型依赖，如果是，常见其依赖对象，并删除
         Object obj = dependencyMap.createMockDependency(beanClass);
         if (obj != null) {
-            Object mockImpl = dependencyMap.createMockDependency(beanClass);
 
             // 删除依赖
-            dependencyMap.removeMockDependency(mockImpl.getClass());
+            dependencyMap.removeMockDependency(obj.getClass());
 
             // 对于已经被mock掉的内容，它是不会存在mock状况的,因此不需要在进行mock分析了
-            return mockImpl;
+            return obj;
 
         }
 

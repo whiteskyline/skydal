@@ -21,12 +21,9 @@
 		<appender-ref ref="stdout" />
 	</logger>
 
-
-
 	<root>
 		<level value="${log4j.level}" />
-		<!-- <appender-ref ref="stdout" /> -->
-		<appender-ref ref="file" />
+		<appender-ref ref="stdout" />
 	</root>
 
 </log4j:configuration>

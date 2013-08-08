@@ -46,7 +46,7 @@ public class Pair implements Validatable {
      */
     public List<Pair> getDecodedPairs() {
         if (key != DalConstants.UN_INIT_VALUE_INT) {
-            Arrays.asList(this);
+            return Arrays.asList(this);
         }
 
         Validate.isTrue(start != DalConstants.UN_INIT_VALUE_INT && end != DalConstants.UN_INIT_VALUE_INT && start <= end,

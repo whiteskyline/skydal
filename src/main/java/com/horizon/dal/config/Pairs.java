@@ -6,15 +6,19 @@
 
 package com.horizon.dal.config;
 
+import com.horizon.dal.skydal.util.MapUtil;
 import com.horizon.dal.skydal.util.Validatable;
 
 import org.apache.commons.lang.Validate;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -30,6 +34,28 @@ public class Pairs implements Validatable {
     @ElementList(inline = true)
     private List<Pair> pairs;
 
+    /**
+     * 为链表的Pairs生成相应的名称到内容的影射
+     * @param pairsList
+     * @return
+     */
+    public static Map<String, TreeMap<Integer, Pair>> getPairsMap(List<Pairs> pairsList) {
+        Map<String, TreeMap<Integer, Pair>> result = null;
+        if (CollectionUtils.isEmpty(pairsList)) {
+            result = new HashMap<String, TreeMap<Integer, Pair>>();
+        }
+        
+        // 根据最终需要的量来产生足够大的最终映射
+        result = new HashMap<String, TreeMap<Integer, Pair>>(MapUtil.getSuggestedMapSize(pairsList.size()));
+        
+        // 将Paris的所有配置转换成为更加合理的Map
+        for (Pairs pairsSingle : pairsList) {
+            result.put(pairsSingle.getName(), pairsSingle.getPairs());
+        }
+        
+        return result;
+    }
+    
     /**
      * 获取聚合的Pair列表
      * 

@@ -6,6 +6,7 @@
 
 package com.horizon.util.mock;
 
+import com.personal.util.mock.AutoRegisterTest;
 import com.personal.util.mock.MockInfo;
 import com.personal.util.mock.Mocked;
 import com.personal.util.mock.SuperMockedAttributeFilter;
@@ -27,7 +28,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:applicationContext.xml")
-public class MockAnnotationUT {
+public class MockAnnotationUT extends AutoRegisterTest {
 
     private Logger LOGGER = LoggerFactory.getLogger(MockAnnotationUT.class);
 
@@ -37,15 +38,13 @@ public class MockAnnotationUT {
     @Autowired
     private UserClass user;
 
-    static {
-        SuperMockedAttributeFilter.register(MockAnnotationUT.class);
-    }
-
     /**
      * 对于生成的DAO类型的interface实现的mock进行测试
      */
     @Test
     public void testGeneratedInterfaceImplTest() {
-        LOGGER.debug("user`s value:{}", user.getValue());
+        LOGGER.warn("user`s value:{}", user.getValue());
     }
+    
+    
 }

@@ -13,5 +13,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ImplClass implements BaseClass {
-
+    public ImplClass() {
+        System.err.println("Impl Class is created.");
+    }
 }

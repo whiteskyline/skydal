@@ -39,24 +39,27 @@ public final class GeneratedConnections {
 
     private Logger LOGGER = LoggerFactory.getLogger(GeneratedConnections.class);
     private static final String EXPRESSION = "\\$\\{([\\w\\d\\_]*)\\}";
-    private static final Pattern PATTERN = Pattern.compile(EXPRESSION); // pattern貌似不是线程安全的
+    private static final Pattern PATTERN = Pattern.compile(EXPRESSION); // :TODO pattern貌似不是线程安全的
     private static final int TARGET_GROUP_IDX = 1;
     private static final String ID_KEY = "id";
 
     @Attribute
     private int idxRange;
 
-    @NeedDecode
     @Attribute
+    @NeedDecode
     private String name;
-    @NeedDecode
+
     @Attribute
+    @NeedDecode
     private String usr;
-    @NeedDecode
+
     @Attribute
+    @NeedDecode
     private String pwd;
-    @NeedDecode
+
     @Attribute
+    @NeedDecode
     private String url;
 
     /**
@@ -121,7 +124,7 @@ public final class GeneratedConnections {
      * 生成的最终数据源是按照idx进行排序的
      * 
      * @param keySets
-     * @return
+     * @return 这个部分一定会返回一个非Null的链表
      * @throws DalConfigException
      */
     public List<DataSourceConfig> generateConnections(Map<String, TreeMap<Integer, Pair>> keySets) throws DalConfigException {
@@ -134,7 +137,7 @@ public final class GeneratedConnections {
         for (int idx = 0; idx < idxRange; idx++) {
 
             // 首先获取當前Config各个字段的值，然后进行正则表达式匹配
-            Field[] fields = this.getClass().getFields();
+            Field[] fields = this.getClass().getDeclaredFields();
             for (Field field : fields) {
 
                 // 對於需要進行解析并且生成的属性，我们进行正则表达式匹配，并且生成最终的值
@@ -199,7 +202,7 @@ public final class GeneratedConnections {
             }
 
         }
-        return null;
+        return configList;
     }
 
     /**

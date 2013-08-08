@@ -78,7 +78,7 @@ public class MockDependencyMap {
         Class<?>[] interfaces = targetClass.getInterfaces();
         for (Class<?> interFace : interfaces) {
             if (classMap.containsKey(interFace)) {
-                return getMockObject(classMap.get(targetClass));
+                return getMockObject(classMap.get(interFace));
             }
         }
 
@@ -96,7 +96,7 @@ public class MockDependencyMap {
      * @throws BeansException 如果对应的Mock类型没有默认构造函数，那么抛出异常
      */
     protected Object getMockObject(Class<? extends Object> clazz) throws BeansException {
-        Validate.notNull(clazz);
+        Validate.notNull(clazz, "cannot get mock for null object");
         Constructor<? extends Object>[] cons = clazz.getConstructors();
 
         for (Constructor<? extends Object> con : cons) {
