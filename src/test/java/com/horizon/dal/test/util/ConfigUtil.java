@@ -21,6 +21,13 @@ import java.io.File;
 public class ConfigUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(ConfigUtil.class);
 
+    /**
+     * 从文件中读取对应的配置对象信息
+     * @param filename
+     * @param target
+     * @return
+     * @throws DalConfigException
+     */
     public static <T> T getFromFile(String filename, T target) throws DalConfigException {
         Serializer selializer = new Persister();
         File file = new File(filename);

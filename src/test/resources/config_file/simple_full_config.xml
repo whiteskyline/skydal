@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
 	<connection-pool>
-
 		<connections>
 			<connection name="mms_db_0"
 				url="jdbc:mysql://127.0.0.1/bigtables_00?useUnicode=true&amp;characterEncoding=ascii"
 				usr="root" pwd="skyline" role="master" />
-			<connection name="mms_db_0"
+			<connection name="mms_db_1"
 				url="jdbc:mysql://127.0.0.1/bigtables_01?useUnicode=true&amp;characterEncoding=ascii"
 				usr="root" pwd="skyline" role="master" />
 		</connections>
 	</connection-pool>
+
+	<table view="classmates" mod="200">
+		<partition id="0" start="0" end="99" tablename="classmates_0"
+			connection-ref="mms_db_0" />
+		<partition id="1" start="100" end="199" tablename="classmates_1"
+			connection-ref="mms_db_1" />
+	</table>
 </config>
