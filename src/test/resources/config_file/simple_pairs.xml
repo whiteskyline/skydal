@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 程序应该使用这个pairs的集合，作为下面的genConnections的输入进行生成输出 -->
+<pairs name="passwd" range="10">
+	<pair start="0" end="4" value="valueofpari0-4" />
+	<pair key="5" value="valueofpair5" />
+	<pair start="6" end="9" value="valueofpair6-9" />
+</pairs>

@@ -10,5 +10,5 @@ package com.horizon.dal.skydal.anno;
  * @author ianlin
  */
 public @interface SQL {
-    String value();
+    String value(); // 数据库查询语句
 }

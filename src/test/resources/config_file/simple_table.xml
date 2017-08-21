@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table view="tablename" mod="10000">
+	<partition id="0" start="0" end="99" tablename="tablename_0"
+		connection-ref="connection_0" />
+	<partition id="1" start="100" end="199" tablename="tablename_1"
+		connection-ref="connection_1" />
+</table>

@@ -7,8 +7,7 @@
 package com.horizon.dal.datasource;
 
 /**
- * @author ianlin 数据源管理器，负责从文件进行相应的内容加载
+ * @author ianlin 数据源管理器，注册数据源并且维护这些数据源
  */
 public class DataSourceManager {
-    
 }

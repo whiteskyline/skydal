@@ -19,6 +19,8 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 /**
+ * {@code if (a > 0) }
+ * 
  * @author ianlin
  */
 public class DbConnPool extends GenericObjectPool {
